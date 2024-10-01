@@ -115,6 +115,15 @@ li p {
     margin-left: 5px;
 }
 
+.overlay-home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
 /* --- NAVBAR --- */
 
 nav {
@@ -181,9 +190,17 @@ nav {
     margin: 10px 0; 
 }
 
+
+.contact-section {
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
 /* --- ABOUT PAGE --- */
 
-.about-background {
+.about-background, .home-background, .contact-background {
     position: relative;
     height: 100vh;
     background-image: url('/images/background_image1.jpg'); 
@@ -204,7 +221,7 @@ nav {
 }
 
 
-.about-content {
+.about-content, .home-content {
     position: relative;
     color: white;
     text-align: center;

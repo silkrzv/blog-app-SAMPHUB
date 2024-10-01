@@ -11,41 +11,44 @@
 <body>
     <%- include('partials/header') %>
 
-    <div class="content">
-        <h1><%= title %></h1>
-        <p><%= content %></p>
+    <div class="home-background">
+        <div class="overlay-home">
+            <div class="home-content">
+                <h1><%= title %></h1>
+                <p><%= content %></p>
 
-        <% if (!editPost) { %> <!-- Afișează formularul de creare dacă nu se editează nimic -->
-            <form action="/create-post" method="POST">
-                <input type="text" name="title" placeholder="Titlul postării" required>
-                <textarea name="content" placeholder="Conținutul postării" required></textarea>
-                <button type="submit">Adaugă Postare</button>
-            </form>
-        <% } else { %> <!-- Afișează formularul de editare -->
-            <form action="/edit-post/<%= editPost.id %>" method="POST">
-                <input type="text" name="title" value="<%= editPost.title %>" required>
-                <textarea name="content" required><%= editPost.content %></textarea>
-                <button type="submit">Salvează Modificările</button>
-            </form>
-            <a href="/">Anulează Editarea</a>
-        <% } %>
+                <% if (!editPost) { %>
+                    <form action="/create-post" method="POST">
+                        <input type="text" name="title" placeholder="Titlul postării" required>
+                        <textarea name="content" placeholder="Conținutul postării" required></textarea>
+                        <button type="submit">Adaugă Postare</button>
+                    </form>
+                <% } else { %>
+                    <form action="/edit-post/<%= editPost.id %>" method="POST">
+                        <input type="text" name="title" value="<%= editPost.title %>" required>
+                        <textarea name="content" required><%= editPost.content %></textarea>
+                        <button type="submit">Salvează Modificările</button>
+                    </form>
+                    <a href="/">Anulează Editarea</a>
+                <% } %>
 
-        <h2>Postări</h2>
-        <ul>
-            <% posts.forEach(function(post) { %>
-                <li>
-                    <h3><%= post.title %></h3>
-                    <p><%= post.content %></p>
-                    <!-- Butoane pentru editare și ștergere -->
-                    <form action="/edit-post/<%= post.id %>" method="GET" style="display: inline;">
-                        <button type="submit">Editează</button>
-                    </form>
-                    <form action="/delete-post/<%= post.id %>" method="POST" style="display: inline;">
-                        <button type="submit" onclick="return confirm('Sigur doriți să ștergeți această postare?');">Șterge</button>
-                    </form>
-                </li>
-            <% }); %>
-        </ul>
+                <h2>Postări</h2>
+                <ul>
+                    <% posts.forEach(function(post) { %>
+                        <li>
+                            <h3><%= post.title %></h3>
+                            <p><%= post.content %></p>
+                            <form action="/edit-post/<%= post.id %>" method="GET" style="display: inline;">
+                                <button type="submit">Editează</button>
+                            </form>
+                            <form action="/delete-post/<%= post.id %>" method="POST" style="display: inline;">
+                                <button type="submit" onclick="return confirm('Sigur doriți să ștergeți această postare?');">Șterge</button>
+                            </form>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <%- include('partials/footer') %>
