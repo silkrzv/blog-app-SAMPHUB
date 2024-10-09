@@ -7,8 +7,8 @@ let posts = [];
 // main route
 router.get('/', (req, res) => {
   res.render('index', {
-    title: 'SAMP Hub', 
-    content: 'Bine ai venit la blog!', 
+    title: 'SAMP HUB', 
+    content: 'Bine ai venit!', 
     posts: posts,
     editPost: null 
   });
