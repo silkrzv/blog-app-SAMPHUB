@@ -16,39 +16,43 @@
     <div class="home-background">
         <div class="overlay-home">
             <div class="home-content">
-                <h1><%= title %></h1>
-                <p><%= content %></p>
+                <h1 class="main-title"><%= title %></h1>
+                <p class="intro-text"><%= content %></p>
 
                 <% if (!editPost) { %>
-                    <form action="/create-post" method="POST">
-                        <input type="text" name="title" placeholder="Titlul postării" required>
-                        <textarea name="content" placeholder="Conținutul postării" required></textarea>
-                        <button type="submit">Adaugă Postare</button>
+                    <form action="/create-post" method="POST" class="post-form compact-form">
+                        <input type="text" name="title" placeholder="Titlul postării" required class="form-input">
+                        <textarea name="content" placeholder="Conținutul postării" required class="form-textarea"></textarea>
+                        <button type="submit" class="form-button">Adaugă Postare</button>
                     </form>
                 <% } else { %>
-                    <form action="/edit-post/<%= editPost.id %>" method="POST">
-                        <input type="text" name="title" value="<%= editPost.title %>" required>
-                        <textarea name="content" required><%= editPost.content %></textarea>
-                        <button type="submit">Salvează Modificările</button>
+                    <form action="/edit-post/<%= editPost.id %>" method="POST" class="post-form compact-form">
+                        <input type="text" name="title" value="<%= editPost.title %>" required class="form-input">
+                        <textarea name="content" required class="form-textarea"><%= editPost.content %></textarea>
+                        <div class="button-container">
+                        <button type="submit" class="form-button">Salvează Modificările</button>
                     </form>
-                    <a href="/">Anulează Editarea</a>
+                    <a href="/" class="cancel-button">Anulează Editarea</a>
+                </div>
                 <% } %>
 
-                <h2>Postări</h2>
-                <ul>
+                <h2 class="section-title">Postări Recente</h2>
+                <div class="post-list compact-list">
                     <% posts.forEach(function(post) { %>
-                        <li>
-                            <h3><%= post.title %></h3>
-                            <p><%= post.content %></p>
-                            <form action="/edit-post/<%= post.id %>" method="GET" style="display: inline;">
-                                <button type="submit">Editează</button>
-                            </form>
-                            <form action="/delete-post/<%= post.id %>" method="POST" style="display: inline;">
-                                <button type="submit" onclick="return confirm('Sigur doriți să ștergeți această postare?');">Șterge</button>
-                            </form>
-                        </li>
+                        <div class="post-card compact-card">
+                            <h3 class="post-title"><%= post.title %></h3>
+                            <p class="post-content"><%= post.content %></p>
+                            <div class="post-actions centered-actions">
+                                <form action="/edit-post/<%= post.id %>" method="GET" class="post-action-form">
+                                    <button type="submit" class="action-button">Editează</button>
+                                </form>
+                                <form action="/delete-post/<%= post.id %>" method="POST" class="post-action-form">
+                                    <button type="submit" class="action-button delete-button" onclick="return confirm('Sigur doriți să ștergeți această postare?');">Șterge</button>
+                                </form>
+                            </div>
+                        </div>
                     <% }); %>
-                </ul>
+                </div>
             </div>
         </div>
     </div>

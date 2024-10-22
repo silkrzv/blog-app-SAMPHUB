@@ -59,5 +59,4 @@ router.post('/delete-post/:id', (req, res) => {
   res.redirect('/');
 });
 
-
 export default router;

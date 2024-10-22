@@ -1,10 +1,10 @@
-/* --- HOME PAGE --- */
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #474747 ;
+    background-color: #474747;
+    background-size: cover;
+    min-height: 100vh; 
 }
 
 header {
@@ -54,30 +54,186 @@ footer p {
     font-size: 16px;
 }
 
-form {
-    margin: 20px 0;
+.compact-form {
+    width: 50%; 
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
 }
 
-form input, form textarea {
-    margin-bottom: 10px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-form button {
+.form-input, .form-textarea {
+    width: 100%;
+    margin-bottom: 15px;
     padding: 10px;
-    background-color: #333;
-    color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    max-width: 100%;
+    resize: none; 
+}
+
+.form-textarea {
+    height: 150px; 
+}
+
+.form-button {
+    width: 100%;
+    background-color: #ff7b54;
+    color: white;
+    padding: 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
 }
 
-form button:hover {
-    background-color: #555;
+.form-button:hover {
+    background-color: #ff5a32;
+}
+
+.compact-list {
+    margin-top: 30px;
+}
+
+.compact-card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 100%; 
+    margin: 10px auto; 
+}
+
+.post-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333; 
+    text-align: left;  
+    position: relative; 
+    top: 0;            
+    left: 0;      
+}
+
+.post-list {
+    max-width: 700px; 
+    margin: 20px auto;
+}
+
+.post-content {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: center; 
+    margin-top: 10px; 
+}
+
+.centered-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;  
+    gap: 10px;  
+    width: 100%;  
+}
+
+.action-button {
+    background-color: #007bff;
+    color: white;
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.action-button, .delete-button {
+    margin-right: 10px; 
+    flex: 1; 
+}
+
+.action-button:hover, .delete-button:hover {
+    opacity: 0.8;
+}
+
+.main-title {
+    font-size: 36px;
+    color: #fff;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 18px;
+    color: #f0f0f0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 28px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.cancel-button {
+    width: 100%;
+    background-color: hsl(138, 84%, 49%);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cancel-button:hover {
+    background-color: hsl(138, 84%, 45%);
+    text-decoration: none;
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .compact-form {
+        width: 90%;
+    }
+
+    .post-card {
+        padding: 10px;
+    }
+
+    .post-title {
+        font-size: 20px;
+    }
+
+    .post-content {
+        font-size: 14px;
+    }
+
+    .form-button, .action-button, .delete-button, .cancel-button {
+        font-size: 14px;
+    }
 }
 
 ul {
@@ -87,10 +243,11 @@ ul {
 
 li {
     background: #fff;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 15px; 
+    margin-bottom: 15px; 
     border: 1px solid #ddd;
     border-radius: 4px;
+    position: relative; 
 }
 
 li h3 {
@@ -181,7 +338,6 @@ nav {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
 }
 
-
 /* --- CONTACT PAGE --- */
 
 .contact-section {
@@ -226,7 +382,11 @@ nav {
 
 .about-background, .home-background, .contact-background {
     position: relative;
-    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 100vh;
     background-image: url('/images/background_image1.jpg'); 
     background-size: cover;
     background-position: center;
