@@ -2,6 +2,8 @@
 
 A simple blogging application built with Node.js, Express, and EJS templating engine. This project allows users to create, edit, and delete posts, with a clean user interface and a persistent background image for enhanced aesthetics.
 
+![Project Screenshot](public/images/samphub.png)
+
 ## Features
 
 - **Add Posts**: Users can create new posts by filling in a title and content.
